@@ -8,6 +8,7 @@ Ariete $stdout & $stderr Capture Moduleは、標準出力または標準エラ�
 **usage**
 
     require "test/unit"
+    require "ariete"
     require_relative "klass"
 
     class KlassTest < Test::Unit::TestCase

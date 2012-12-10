@@ -8,6 +8,7 @@ Ariete $stdout & $stderr Capture Module is a module that captures $stdout($stder
 **usage**
 
     require "test/unit"
+    require "ariete"
     require_relative "klass"
 
     class KlassTest < Test::Unit::TestCase
