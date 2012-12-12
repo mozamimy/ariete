@@ -1,9 +1,9 @@
-Ariete $stdout & $stderr Capture Module
+Ariete STDOUT & STDERR Capture Module
 =======================================
 
 ## イントロダクション
 
-Ariete $stdout & $stderr Capture Moduleは、標準出力または標準エラー出力をキャプチャし、文字列として取得するためのモジュールである。主にユニットテストで使用することを想定している。
+Ariete STDOUT & STDERR Capture Moduleは、標準出力または標準エラー出力をキャプチャし、文字列として取得するためのモジュールである。主にユニットテストで使用することを想定している。
 
 **usage**
 

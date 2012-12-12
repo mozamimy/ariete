@@ -1,9 +1,9 @@
-Ariete $stdout & $stderr Capture Module
+Ariete STDOUT & STDERR Capture Module
 =======================================
 
 ## Introduction
 
-Ariete $stdout & $stderr Capture Module is a module that captures $stdout($stderr) and return as String. Ariete is useful on unit test.
+Ariete STDOUT & STDERR Capture Module is a module that captures $stdout($stderr) and return as String. Ariete is useful on unit test.
 
 **usage**
 
