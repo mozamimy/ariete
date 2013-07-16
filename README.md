@@ -65,7 +65,7 @@ See following website: [http://quellencode.org/ariete-doc/](http://quellencode.o
 
 ## License
 
-Hakto is distributed with MIT License. See the LICENSE file to read the detail of license.
+Ariete is distributed with MIT License. See the LICENSE file to read the detail of license.
 
 ## About Author
 
