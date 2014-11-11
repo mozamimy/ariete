@@ -1,0 +1,7 @@
+language: ruby
+rvm:
+  - 2.1.3
+notifications:
+  on_success: change
+  on_failure: change
+  on_start: false
