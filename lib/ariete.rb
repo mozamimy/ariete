@@ -1,33 +1,12 @@
-#!/usr/bin/env ruby
-# encoding: utf-8
+# Ariete
+# Copyright (c) 2014 Moza USANE
+# This software is released under the MIT License.
+# http://opensource.org/licenses/mit-license.php
 
 require "stringio"
 
-# Ariete STDOUT & STDERR Capture Module
-# Author::    Moza USANE (mailto:mozamimy@quellencode.org)
-# Copyright:: Copyright (c) 2012 Moza USANE
-# License::   MIT License (see the LICENSE file)
 module Ariete
-
   ["stdout", "stderr"].each do |name|
-    ##
-    # :method: capture_stdout
-    # Capture STDOUT's output and return as String.
-    # ==== Args
-    # &block :: a block that you want to capture
-    # ==== Return
-    # Captured string
-
-    ##
-    # :method: capture_stderr
-    # Capture STDERR's output and return as String.
-    # ==== Args
-    # &block :: a block that you want to capture
-    # ==== Return
-    # Captured string
-
-    ##
-
     define_method("capture_#{name}") do |*args, &block|
       original = eval("$#{name}")
       eval("$#{name} = StringIO.new")
@@ -42,5 +21,4 @@ module Ariete
       ret_str
     end
   end
-
 end
