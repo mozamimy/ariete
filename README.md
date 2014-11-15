@@ -42,6 +42,7 @@ require_relative "klass"
 RSpec.describe Klass do
   include Ariete
 
+  # You can use without 'Ariete.' if you include Ariete.
   describe ".output_out" do
     subject { capture_stdout { Klass.output_out } }
     it { expect(subject).to eq "Ariete is a kind of rabbit.\n" }
@@ -49,6 +50,17 @@ RSpec.describe Klass do
 
   describe ".output_err" do
     subject { capture_stderr { Klass.output_err } }
+    it { expect(subject).to eq "Ariete means 'Lop' in Italian.\n" }
+  end
+
+  # Also you can use as 'Ariete.capture_xxx'
+  describe ".output_out" do
+    subject { Ariete.capture_stdout { Klass.output_out } }
+    it { expect(subject).to eq "Ariete is a kind of rabbit.\n" }
+  end
+
+  describe ".output_err" do
+    subject { Ariete.capture_stderr { Klass.output_err } }
     it { expect(subject).to eq "Ariete means 'Lop' in Italian.\n" }
   end
 end

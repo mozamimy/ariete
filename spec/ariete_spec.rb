@@ -17,4 +17,16 @@ RSpec.describe Ariete do
     subject { capture_stderr { output } }
     it { expect(subject).to eq "Ariete means 'Lop' in Italian.\n" }
   end
+
+  describe "module_function" do
+    describe "#capture_stdout" do
+      subject { Ariete.capture_stdout { output } }
+      it { expect(subject).to eq "Ariete is a kind of rabbit.\n" }
+    end
+
+    describe "#capture_stderr" do
+      subject { Ariete.capture_stderr { output } }
+      it { expect(subject).to eq "Ariete means 'Lop' in Italian.\n" }
+    end
+  end
 end

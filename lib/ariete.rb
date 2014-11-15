@@ -20,5 +20,7 @@ module Ariete
 
       ret_str
     end
+
+    module_function "capture_#{name}"
   end
 end
