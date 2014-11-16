@@ -1,3 +1,8 @@
+# Ariete
+# Copyright (c) 2014 Moza USANE
+# This software is released under the MIT License.
+# http://opensource.org/licenses/mit-license.php
+
 require "spec_helper"
 
 RSpec.describe Ariete do
