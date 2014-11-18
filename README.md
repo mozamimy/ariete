@@ -42,6 +42,18 @@ require_relative "klass"
 RSpec.describe Klass do
   include Ariete
 
+  # Ariete extends matchers of RSpec.
+  # Therefore, you can use 'be_output' and 'be_output_to_stderr'.
+  describe ".output_out" do
+    subject { Klass.method(:output_out).to_proc }
+    it { expect(subject).to be_output "Ariete is a kind of rabbit.\n" }
+  end
+
+  describe ".output_err" do
+    subject { Klass.method(:output_err).to_proc }
+    it { expect(subject).to be_output_to_stderr "Ariete means 'Lop' in Italian.\n" }
+  end
+
   # You can use without 'Ariete.' if you include Ariete.
   describe ".output_out" do
     subject { capture_stdout { Klass.output_out } }
