@@ -49,6 +49,11 @@ RSpec.describe Klass do
     it { expect(subject).to be_output "Ariete is a kind of rabbit.\n" }
   end
 
+  describe ".output_out (an alternate expression)" do
+    subject { -> { Klass.output_out } }
+    it { expect(subject).to be_output "Ariete is a kind of rabbit.\n" }
+  end
+
   describe ".output_err" do
     subject { Klass.method(:output_err).to_proc }
     it { expect(subject).to be_output_to_stderr "Ariete means 'Lop' in Italian.\n" }
