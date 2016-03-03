@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     ariete (1.0.3)
-      rspec
 
 GEM
   remote: https://rubygems.org/
@@ -30,6 +29,7 @@ DEPENDENCIES
   ariete!
   bundler (~> 1.7)
   rake (~> 10.0)
+  rspec
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
