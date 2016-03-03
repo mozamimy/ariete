@@ -2,6 +2,7 @@
 # Copyright (c) 2014 Moza USANE
 # This software is released under the MIT License.
 # http://opensource.org/licenses/mit-license.php
+
 require "rspec"
 require "stringio"
 
@@ -22,17 +23,5 @@ module Ariete
     end
 
     module_function "capture_#{name}"
-  end
-end
-
-RSpec::Matchers.define :be_output do |expect|
-  match do |actual|
-    Ariete.capture_stdout { actual.call } == expect.to_s
-  end
-end
-
-RSpec::Matchers.define :be_output_to_stderr do |expect|
-  match do |actual|
-    Ariete.capture_stderr { actual.call } == expect.to_s
   end
 end

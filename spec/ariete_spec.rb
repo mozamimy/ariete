@@ -34,16 +34,4 @@ RSpec.describe Ariete do
       it { expect(subject).to eq "Ariete means 'Lop' in Italian.\n" }
     end
   end
-
-  describe "custom matchers" do
-    describe "#be_output" do
-      subject { method(:output).to_proc }
-      it { expect(subject).to be_output "Ariete is a kind of rabbit.\n" }
-    end
-
-    describe "#be_output_to_stderr" do
-      subject { method(:output).to_proc }
-      it { expect(subject).to be_output_to_stderr "Ariete means 'Lop' in Italian.\n" }
-    end
-  end
 end
