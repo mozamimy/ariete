@@ -1,5 +1,7 @@
 # Ariete
 
+[![Build Status](https://travis-ci.org/mozamimy/ariete.svg?branch=develop)](https://travis-ci.org/mozamimy/ariete)
+
 Ariete is a module that captures $stdout($stderr) and return as String.  
 It is useful on an unit test.
 
