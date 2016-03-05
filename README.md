@@ -1,5 +1,7 @@
 # Ariete
 
+[![Build Status](https://travis-ci.org/mozamimy/ariete.svg?branch=develop)](https://travis-ci.org/mozamimy/ariete)
+
 Ariete is a module that captures $stdout($stderr) and return as String.  
 It is useful on an unit test.
 
@@ -13,75 +15,47 @@ It is useful on an unit test.
 $ (sudo) gem install 'ariete'
 ```
 
-## Usage
+## Usage with test-unit
 
-### rspec
-
-#### klass.rb
+### klass.rb
 
 ```ruby
 class Klass
   class << self
-    def output_out
+    def output
       puts "Ariete is a kind of rabbit."
-    end
-
-    def output_err
       warn "Ariete means 'Lop' in Italian."
     end
   end
 end
 ```
 
-#### klass_spec.rb
+### klass_spec.rb
 
 ```ruby
-require "ariete"
-require_relative "klass"
+require 'test/unit'
+require 'ariete'
+require_relative 'klass'
 
-RSpec.describe Klass do
+class TestKlass < Test::Unit::TestCase
   include Ariete
 
-  # Ariete extends matchers of RSpec.
-  # Therefore, you can use 'be_output' and 'be_output_to_stderr'.
-  describe ".output_out" do
-    subject { Klass.method(:output_out).to_proc }
-    it { expect(subject).to be_output "Ariete is a kind of rabbit.\n" }
+  def test_output_std
+    captured_string = capture_stdout { Klass.output }
+    assert_equal "Ariete is a kind of rabbit.\n", captured_string
   end
 
-  describe ".output_out (an alternate expression)" do
-    subject { -> { Klass.output_out } }
-    it { expect(subject).to be_output "Ariete is a kind of rabbit.\n" }
-  end
-
-  describe ".output_err" do
-    subject { Klass.method(:output_err).to_proc }
-    it { expect(subject).to be_output_to_stderr "Ariete means 'Lop' in Italian.\n" }
-  end
-
-  # You can use without 'Ariete.' if you include Ariete.
-  describe ".output_out" do
-    subject { capture_stdout { Klass.output_out } }
-    it { expect(subject).to eq "Ariete is a kind of rabbit.\n" }
-  end
-
-  describe ".output_err" do
-    subject { capture_stderr { Klass.output_err } }
-    it { expect(subject).to eq "Ariete means 'Lop' in Italian.\n" }
-  end
-
-  # Also you can use as 'Ariete.capture_xxx'
-  describe ".output_out" do
-    subject { Ariete.capture_stdout { Klass.output_out } }
-    it { expect(subject).to eq "Ariete is a kind of rabbit.\n" }
-  end
-
-  describe ".output_err" do
-    subject { Ariete.capture_stderr { Klass.output_err } }
-    it { expect(subject).to eq "Ariete means 'Lop' in Italian.\n" }
+  def test_output_err
+    captured_string = capture_stderr { Klass.output }
+    assert_equal "Ariete means 'Lop' in Italian.\n", captured_string
   end
 end
 ```
+
+## with RSpec
+
+Do you want some matchers for RSpec?  
+You can use [ariete-rspec](https://github.com/mozamimy/ariete-rspec) gem to extend RSpec.
 
 ## Contributing
 
