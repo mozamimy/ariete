@@ -8,6 +8,10 @@ class TestAriete < Test::Unit::TestCase
     warn "Ariete means 'Lop' in Italian."
   end
 
+  def test_version
+    assert_equal '1.1.0', Ariete::VERSION
+  end
+
   def test_capture_stdout
     captured_string = capture_stdout { output }
     assert_equal "Ariete is a kind of rabbit.\n", captured_string
